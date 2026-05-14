@@ -1,0 +1,702 @@
+@import "tailwindcss";
+
+/* =========================================================================
+   Asperity Industries — design tokens
+   Engineering-drawing aesthetic: typographic, warm paper, rust accent,
+   subtle dot grid background.
+   ========================================================================= */
+
+@theme {
+  --font-serif: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  --font-sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  --color-paper: #F8F6F1;
+  --color-paper-dim: #EFEDE6;
+  --color-ink: #1A1A1A;
+  --color-ink-soft: #383530;
+  --color-muted: #6B6862;
+  --color-rust: #B5371E;
+  --color-rust-soft: #C45A3F;
+  --color-rule: #DFDBD2;
+}
+
+/* =========================================================================
+   Base
+   ========================================================================= */
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    letter-spacing: -0.005em;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    color: var(--color-ink);
+    letter-spacing: -0.02em;
+    margin: 0;
+  }
+
+  p { margin: 0; }
+  ul { margin: 0; padding: 0; }
+
+  a {
+    color: var(--color-rust);
+    text-decoration: none;
+  }
+  a:hover { text-decoration: underline; text-underline-offset: 3px; }
+}
+
+/* =========================================================================
+   Subtle dot-grid background (draftsman's paper feel)
+   ========================================================================= */
+
+.grid-bg {
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(26, 26, 26, 0.07) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* =========================================================================
+   Layout
+   ========================================================================= */
+
+main {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem 3rem;
+}
+
+@media (min-width: 768px) {
+  main { padding: 5rem 2rem 4rem; }
+}
+
+/* =========================================================================
+   Site header
+   ========================================================================= */
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 5rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--color-rule);
+}
+
+.wordmark {
+  font-family: var(--font-serif);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-ink);
+}
+
+.wordmark:hover { text-decoration: none; }
+
+.location-chip {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--color-muted);
+  letter-spacing: 0.02em;
+}
+
+/* =========================================================================
+   Section labels (§00, §01, ...)
+   v2: bumped from 0.78rem to 1rem, tighter rust underline accent, more weight.
+   ========================================================================= */
+
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 1rem;                       /* v2: was 0.78rem */
+  text-transform: uppercase;
+  letter-spacing: 0.12em;                /* v2: slightly expanded */
+  color: var(--color-rust);
+  margin-bottom: 2rem;                   /* v2: was 1.75rem — more breathing room */
+  font-weight: 500;                      /* v2: was 400 default */
+  display: inline-block;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--color-rust); /* v2: small underline accent */
+}
+
+/* =========================================================================
+   Section rules
+   ========================================================================= */
+
+.section-rule {
+  border: 0;
+  border-top: 1px solid var(--color-rule);
+  margin: 5rem 0;
+}
+
+/* =========================================================================
+   Sections (shared)
+   v2: positioning context so the section-number watermark can absolute-position.
+   ========================================================================= */
+
+.section {
+  position: relative;                    /* v2: anchor for .section-number watermark */
+}
+
+.section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.15;
+  position: relative;                    /* v2: keep heading above watermark */
+  z-index: 1;
+}
+
+@media (min-width: 768px) {
+  .section h2 { font-size: 2.1rem; }
+}
+
+/* =========================================================================
+   v2: Section number watermark
+   Faint oversized "01", "02", "03", "04" anchored to the top-right of each
+   numbered section. Pointer-events disabled; decorative only.
+   ========================================================================= */
+
+.section-number {
+  position: absolute;
+  top: -1rem;
+  right: 0;
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 6rem;
+  line-height: 1;
+  color: var(--color-rule);
+  opacity: 0.55;                         /* effective tint ~ rule colour at 55% */
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: -0.04em;
+  z-index: 0;
+}
+
+@media (min-width: 768px) {
+  .section-number {
+    font-size: 9rem;
+    top: -1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-number {
+    font-size: 4.5rem;
+    top: -0.5rem;
+    opacity: 0.5;
+  }
+}
+
+/* =========================================================================
+   Hero
+   v2: bigger H1 (~4.8–5.2rem desktop), tighter LH, more negative tracking.
+   ========================================================================= */
+
+.hero-headline {
+  font-size: 2.6rem;
+  font-weight: 500;
+  line-height: 1.0;                      /* v2: was 1.08 */
+  margin-bottom: 2rem;
+  letter-spacing: -0.035em;              /* v2: was -0.025em */
+}
+
+@media (min-width: 768px) {
+  .hero-headline {
+    font-size: 5rem;                     /* v2: was 3.4rem */
+    line-height: 0.95;                   /* v2: tighter on desktop */
+    letter-spacing: -0.04em;             /* v2: more negative at scale */
+  }
+}
+
+.hero-subline {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--color-ink-soft);
+  max-width: 640px;
+  margin-bottom: 2.5rem;
+}
+
+.cta {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.94rem;
+  letter-spacing: 0.01em;
+  color: var(--color-rust);
+  border: 1px solid var(--color-rust);
+  padding: 0.7rem 1.2rem;
+  transition: background-color 120ms ease, color 120ms ease;
+}
+
+.cta:hover {
+  background-color: var(--color-rust);
+  color: var(--color-paper);
+  text-decoration: none;
+}
+
+/* =========================================================================
+   Prose
+   ========================================================================= */
+
+.prose p {
+  margin-bottom: 1.25rem;
+  line-height: 1.65;
+  color: var(--color-ink-soft);
+}
+
+.prose p:last-child { margin-bottom: 0; }
+
+.prose .lede {
+  font-size: 1.32rem;                    /* v2: was 1.18rem — more prominence */
+  color: var(--color-ink);
+  margin-bottom: 1.75rem;
+  font-weight: 500;                      /* v2: was 400 */
+  line-height: 1.4;                      /* v2: tighter */
+  letter-spacing: -0.01em;
+}
+
+@media (min-width: 768px) {
+  .prose .lede { font-size: 1.45rem; }   /* v2 */
+}
+
+.mono-inline {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  color: var(--color-ink);
+}
+
+/* =========================================================================
+   v2: Drop caps
+   Applied via .has-dropcap on the first <p> of each numbered section's prose.
+   Pseudo-element ::first-letter for cleaner control; serif, ink-coloured,
+   floats left for ~2-line drop.
+   ========================================================================= */
+
+.has-dropcap::first-letter {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  float: left;
+  font-size: 4em;                        /* ~4× body */
+  line-height: 0.85;
+  padding: 0.25rem 0.55rem 0 0;
+  margin-top: 0.15rem;
+  color: var(--color-ink);
+  letter-spacing: -0.04em;
+}
+
+@media (max-width: 480px) {
+  .has-dropcap::first-letter {
+    font-size: 3.2em;                    /* slightly smaller on mobile */
+    padding-right: 0.45rem;
+  }
+}
+
+/* =========================================================================
+   v2: Pull quotes
+   Used as visual breaks inside .prose. Rust left rule, serif italic.
+   ========================================================================= */
+
+.pull-quote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 1.4;
+  color: var(--color-ink);
+  border-left: 3px solid var(--color-rust);
+  padding: 0.25rem 0 0.25rem 1.25rem;
+  margin: 2rem 0;
+  letter-spacing: -0.01em;
+  max-width: 640px;
+}
+
+@media (min-width: 768px) {
+  .pull-quote {
+    font-size: 1.55rem;
+    border-left-width: 4px;
+    padding-left: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .pull-quote {
+    font-size: 1.2rem;
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+  }
+}
+
+/* =========================================================================
+   Sprint section — chip + 3-block grid
+   v2: chip becomes a banner display element.
+   ========================================================================= */
+
+.chip {
+  margin-top: 0.5rem;                    /* v2: was -0.5rem */
+  margin-bottom: 2.5rem;                 /* v2: was 2rem */
+}
+
+.chip .mono {
+  display: block;                        /* v2: full-width banner */
+  font-family: var(--font-mono);
+  font-size: 1.5rem;                     /* v2: was 0.95rem */
+  color: var(--color-ink);
+  letter-spacing: 0.04em;                /* v2: slight expansion */
+  padding: 1rem 0;                       /* v2: was 0.25rem 0 */
+  border-top: 1px solid var(--color-rule);
+  border-bottom: 1px solid var(--color-rule);
+  text-align: left;
+  font-weight: 500;
+}
+
+.chip .mono .chip-number {              /* v2: rust accent for the numerics */
+  color: var(--color-rust);
+}
+
+@media (min-width: 768px) {
+  .chip .mono {
+    font-size: 1.75rem;                  /* v2 */
+    padding: 1.25rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .chip .mono {
+    font-size: 1.15rem;                  /* v2: scale down but stay bannerish */
+    padding: 0.85rem 0;
+    letter-spacing: 0.03em;
+  }
+}
+
+.sprint-grid {
+  margin-top: 2.5rem;
+  display: grid;
+  gap: 2.5rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .sprint-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem 3rem; }
+  .sprint-block-wide { grid-column: span 2; }
+}
+
+.sprint-block .mono-label {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-rust);
+  margin-bottom: 0.85rem;
+}
+
+.sprint-block ul {
+  padding-left: 1.1rem;
+  list-style: square;
+  color: var(--color-ink-soft);
+}
+
+.sprint-block ul li {
+  margin-bottom: 0.5rem;
+  line-height: 1.55;
+  padding-left: 0.25rem;
+}
+
+.sprint-block ul li::marker { color: var(--color-rust); }
+
+.sprint-block p {
+  color: var(--color-ink-soft);
+  line-height: 1.6;
+}
+
+/* =========================================================================
+   v2: Sprint block visual differentiation
+   Left-edge rules — no cards/shadows/rounding.
+   ========================================================================= */
+
+.sprint-block--value {
+  padding-left: 1rem;
+  border-left: 2px solid var(--color-rust);
+}
+
+.sprint-block--boundary {
+  padding-left: 1rem;
+  border-left: 1px solid var(--color-rule);
+}
+
+.sprint-block--pricing {
+  padding-left: 1rem;
+  border-left: 2px solid var(--color-rust);
+}
+
+.sprint-block--pricing .mono-label {
+  font-weight: 500;
+  letter-spacing: 0.12em;                /* slight emphasis */
+}
+
+/* =========================================================================
+   Founder section — photo + bio grid
+   v2: bigger photo treatment (240–280px desktop).
+   ========================================================================= */
+
+.founder-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (min-width: 768px) {
+  .founder-grid { grid-template-columns: 260px 1fr; gap: 2.75rem; }  /* v2: was 200px */
+}
+
+.founder-photo img {
+  width: 100%;
+  max-width: 280px;                      /* v2: was 240px */
+  height: auto;
+  display: block;
+  filter: grayscale(100%) contrast(0.96) brightness(1.02);
+  transition: filter 200ms ease;
+}
+
+@media (min-width: 768px) {
+  .founder-photo img { width: 260px; max-width: 260px; }  /* v2: was 200px */
+}
+
+.founder-photo img:hover { filter: grayscale(80%) contrast(0.98) brightness(1.02); }
+
+.founder-bio p strong {
+  color: var(--color-ink);
+  font-weight: 600;
+}
+
+.reach-him {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--color-ink-soft);
+  margin-top: 1.5rem !important;
+}
+
+.reach-him a {
+  color: var(--color-rust);
+  border-bottom: 1px solid transparent;
+  transition: border-color 120ms ease;
+}
+
+.reach-him a:hover {
+  text-decoration: none;
+  border-bottom-color: var(--color-rust);
+}
+
+/* =========================================================================
+   Reach us section — contact list
+   ========================================================================= */
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0 1.75rem 0;
+}
+
+.contact-list li {
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--color-rule);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4rem;
+}
+
+.contact-list li:last-child { border-bottom: 0; }
+
+.contact-link {
+  font-family: var(--font-mono);
+  font-size: 1.02rem;
+  color: var(--color-rust);
+  border-bottom: 1px solid transparent;
+  transition: border-color 120ms ease;
+}
+
+.contact-link:hover {
+  text-decoration: none;
+  border-bottom-color: var(--color-rust);
+}
+
+.contact-meta {
+  color: var(--color-muted);
+  font-size: 0.94rem;
+}
+
+.location {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  letter-spacing: 0.02em;
+  margin-top: 1.5rem;
+}
+
+/* =========================================================================
+   Site footer
+   ========================================================================= */
+
+.site-footer {
+  margin-top: 5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-rule);
+}
+
+.site-footer p {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--color-muted);
+  letter-spacing: 0.02em;
+}
+
+.site-footer .credits {
+  font-size: 0.72rem;
+  color: var(--color-muted);
+  opacity: 0.75;
+  margin-top: 0.5rem;
+}
+
+/* =========================================================================
+   v2: Hero plate
+   Atmospheric photograph between hero text and §01. B&W conversion, 16:9
+   crop, mono caption right-aligned. Reads as a magazine plate, not a
+   marketing hero overlay.
+   ========================================================================= */
+
+.hero-plate {
+  margin: 3.5rem 0 0 0;
+}
+
+.hero-plate img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  filter: grayscale(100%) contrast(1.06) brightness(0.96);
+  border: 1px solid var(--color-rule);
+}
+
+.hero-plate figcaption {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-muted);
+  margin-top: 0.65rem;
+  text-align: right;
+}
+
+@media (min-width: 768px) {
+  .hero-plate { margin-top: 4.5rem; }
+  .hero-plate figcaption {
+    font-size: 0.78rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-plate { margin-top: 2.5rem; }
+  .hero-plate img { aspect-ratio: 4 / 3; }
+}
+
+/* =========================================================================
+   v2: Inline diagrams
+   SVG schematics inside .prose sections. Caption in mono, sits below.
+   .diagram-wide breaks slightly beyond the prose column for wider artwork
+   (used for the 6-week sprint timeline).
+   ========================================================================= */
+
+.diagram {
+  margin: 2.5rem 0;
+}
+
+.diagram img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.diagram figcaption {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-muted);
+  margin-top: 0.75rem;
+  text-align: right;
+}
+
+@media (min-width: 768px) {
+  .diagram { margin: 3rem 0; }
+  .diagram figcaption { font-size: 0.78rem; }
+  .diagram-wide {
+    margin-left: -2rem;
+    margin-right: -2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .diagram-wide {
+    margin-left: -4rem;
+    margin-right: -4rem;
+  }
+}
+
+/* =========================================================================
+   Small-screen polish
+   v2: hero scale + section-label downshift for mobile.
+   ========================================================================= */
+
+@media (max-width: 480px) {
+  .site-header { margin-bottom: 3rem; }
+  .section-rule { margin: 3.5rem 0; }
+  .hero-headline {
+    font-size: 2.6rem;                   /* v2: was 2.1rem */
+    line-height: 0.98;
+    letter-spacing: -0.035em;
+  }
+  .hero-subline { font-size: 1.0rem; }
+  .section h2 { font-size: 1.6rem; }
+  .section-label {
+    font-size: 0.88rem;                  /* v2: smaller than desktop but still presence */
+    margin-bottom: 1.5rem;
+  }
+  main { padding: 2.5rem 1.25rem 2.5rem; }
+}
+
+/* =========================================================================
+   Focus styles (accessibility)
+   ========================================================================= */
+
+a:focus-visible,
+.cta:focus-visible {
+  outline: 2px solid var(--color-rust);
+  outline-offset: 3px;
+  border-radius: 1px;
+}
+
+/* =========================================================================
+   Reduce motion
+   ========================================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}

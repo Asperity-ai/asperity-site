@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 220" role="img" aria-labelledby="st-t st-d">
+  <title id="st-t">Six-week sprint timeline</title>
+  <desc id="st-d">A horizontal timeline divided into six equal weekly segments, each marked with a rust circle and labeled with a deliverable: scope lock and site visit, data collection, baseline automation, AI layer build, adaptation training, and before/after measurement plus pilot proposal. The line terminates in a thin arrow pointing to a production pilot proposal.</desc>
+  <g font-family="'IBM Plex Mono', ui-monospace, monospace" fill="#1A1A1A" stroke-linecap="round" stroke-linejoin="round">
+
+    <!-- section label -->
+    <g fill="#6B6862" font-size="9">
+      <text x="40" y="30">§ 6-week deployment sprint</text>
+    </g>
+
+    <!-- baseline -->
+    <line x1="70" y1="110" x2="1010" y2="110" stroke="#1A1A1A" stroke-width="1.4"/>
+
+    <!-- tick marks under baseline -->
+    <g stroke="#6B6862" stroke-width="0.85">
+      <line x1="70" y1="110" x2="70" y2="120"/>
+      <line x1="220" y1="110" x2="220" y2="120"/>
+      <line x1="370" y1="110" x2="370" y2="120"/>
+      <line x1="520" y1="110" x2="520" y2="120"/>
+      <line x1="670" y1="110" x2="670" y2="120"/>
+      <line x1="820" y1="110" x2="820" y2="120"/>
+      <line x1="970" y1="110" x2="970" y2="120"/>
+    </g>
+
+    <!-- segment hatches -->
+    <g stroke="#DFDBD2" stroke-width="0.75">
+      <line x1="145" y1="113" x2="145" y2="125"/>
+      <line x1="295" y1="113" x2="295" y2="125"/>
+      <line x1="445" y1="113" x2="445" y2="125"/>
+      <line x1="595" y1="113" x2="595" y2="125"/>
+      <line x1="745" y1="113" x2="745" y2="125"/>
+      <line x1="895" y1="113" x2="895" y2="125"/>
+    </g>
+
+    <!-- rust circle markers -->
+    <g fill="#B5371E" stroke="#B5371E" stroke-width="1">
+      <circle cx="70" cy="110" r="5"/>
+      <circle cx="220" cy="110" r="5"/>
+      <circle cx="370" cy="110" r="5"/>
+      <circle cx="520" cy="110" r="5"/>
+      <circle cx="670" cy="110" r="5"/>
+      <circle cx="820" cy="110" r="5"/>
+    </g>
+    <g fill="#F8F6F1" stroke="none">
+      <circle cx="70" cy="110" r="1.8"/>
+      <circle cx="220" cy="110" r="1.8"/>
+      <circle cx="370" cy="110" r="1.8"/>
+      <circle cx="520" cy="110" r="1.8"/>
+      <circle cx="670" cy="110" r="1.8"/>
+      <circle cx="820" cy="110" r="1.8"/>
+    </g>
+
+    <!-- terminal arrow -->
+    <g stroke="#1A1A1A" stroke-width="1.4" fill="none">
+      <line x1="970" y1="110" x2="1018" y2="110"/>
+      <path d="M1010 104 L1022 110 L1010 116"/>
+    </g>
+
+    <!-- week numbers (above) -->
+    <g fill="#6B6862" font-size="10">
+      <text x="70" y="78">W1</text>
+      <text x="220" y="78">W2</text>
+      <text x="370" y="78">W3</text>
+      <text x="520" y="78">W4</text>
+      <text x="670" y="78">W5</text>
+      <text x="820" y="78">W6</text>
+    </g>
+
+    <!-- vertical ledger lines from marker to label -->
+    <g stroke="#6B6862" stroke-width="0.75">
+      <line x1="70" y1="92" x2="70" y2="104"/>
+      <line x1="220" y1="92" x2="220" y2="104"/>
+      <line x1="370" y1="92" x2="370" y2="104"/>
+      <line x1="520" y1="92" x2="520" y2="104"/>
+      <line x1="670" y1="92" x2="670" y2="104"/>
+      <line x1="820" y1="92" x2="820" y2="104"/>
+    </g>
+
+    <!-- deliverable labels (below) -->
+    <g fill="#1A1A1A" font-size="11">
+      <text x="70" y="148">Scope lock</text>
+      <text x="70" y="163" fill="#383530">+ site visit</text>
+
+      <text x="220" y="148">Data</text>
+      <text x="220" y="163" fill="#383530">collection</text>
+
+      <text x="370" y="148">Baseline</text>
+      <text x="370" y="163" fill="#383530">automation</text>
+
+      <text x="520" y="148">AI layer</text>
+      <text x="520" y="163" fill="#383530">build</text>
+
+      <text x="670" y="148">Adaptation</text>
+      <text x="670" y="163" fill="#383530">training</text>
+
+      <text x="820" y="148">Before / after</text>
+      <text x="820" y="163" fill="#383530">measurement</text>
+    </g>
+
+    <!-- terminal label -->
+    <g font-size="10">
+      <text x="1028" y="108" fill="#B5371E">production</text>
+      <text x="1028" y="120" fill="#B5371E">pilot</text>
+    </g>
+
+    <!-- corner ticks -->
+    <g stroke="#6B6862" stroke-width="0.75" fill="none">
+      <path d="M30 14 L30 8 L36 8"/>
+      <path d="M1070 14 L1070 8 L1064 8"/>
+      <path d="M30 200 L30 206 L36 206"/>
+      <path d="M1070 200 L1070 206 L1064 206"/>
+    </g>
+  </g>
+</svg>
