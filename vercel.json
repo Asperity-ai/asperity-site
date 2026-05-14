@@ -4,6 +4,26 @@
   "outputDirectory": ".",
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "destination": "https://asperity.ai/:path*",
+      "permanent": true,
+      "has": [{ "type": "host", "value": "asperityrobotics.com" }]
+    },
+    {
+      "source": "/:path*",
+      "destination": "https://asperity.ai/:path*",
+      "permanent": true,
+      "has": [{ "type": "host", "value": "asperityrobotics.ai" }]
+    },
+    {
+      "source": "/:path*",
+      "destination": "https://asperity.ai/:path*",
+      "permanent": true,
+      "has": [{ "type": "host", "value": "asperityai.com" }]
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
