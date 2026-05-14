@@ -30,11 +30,13 @@ Create via your personal profile → Work icon → Create a Company Page → Sma
 
 ### About / Overview (≤2,000 chars)
 
-> Asperity Industries is an AI-native robotics deployment company for small and medium manufacturers. We help shops automate one painful task in 6 weeks — leased robot hardware, in-house AI and perception software, measured before/after performance.
+> Asperity Industries is an AI-native robotics deployment company for small and medium manufacturers, currently working with a small group of design partners. We help shops automate one painful task in 6 weeks — leased robot hardware, in-house AI and perception software, measured before/after performance.
 >
 > Most robots in SMB manufacturing are programmed once and run one product. They handle pose variation badly, choke on part-family changes, and lose hours on changeover. The hardware is fine — what's missing is the software layer that lets a workcell adapt. Asperity builds that layer.
 >
-> Our first product is the AI Robotics Feasibility Sprint: a 6-week, $25K–$80K engagement where we bring or configure a leased robot at your facility, instrument it for data collection, build a baseline automation, then add the AI layer that handles the variation your operators see every day. At week 6, you have measured before/after numbers and a production-pilot proposal grounded in what we observed — not vendor optimism.
+> Our first program is the AI Robotics Feasibility Sprint: a 6-week design-partner engagement where we bring or configure a leased robot at your facility, instrument it for data collection, build a baseline automation, then add the AI layer that handles the variation your operators see every day. At week 6, you have measured before/after numbers and a production-pilot proposal grounded in what we observed — not vendor optimism.
+>
+> We're building this product with our first customers, not for them. Design partners shape the failure modes, the recovery patterns, and the workcell archetypes the rest of the company is built on.
 >
 > Mechanical fixturing, end-of-arm tooling fabrication, PLC integration, and safety engineering are delegated to regional integration partners. We stay in the AI/software lane.
 >
@@ -107,7 +109,7 @@ Alternate if you want to retain "Physician-Scientist" framing visible:
 
 > Asperity Industries deploys AI-native robotic workcells at small and medium manufacturers. We bring or configure leased robot hardware, build the AI/perception/recovery software layer that lets the cell adapt to real-world variation, and deliver measured before/after results plus a production-pilot proposal.
 >
-> First offering: the AI Robotics Feasibility Sprint — 6 weeks, $25K–$80K, design-partner pricing for the first five customers. Year-1 focus is East Texas fabrication shops and specialty electronics contract manufacturers nationally.
+> Currently working with a small group of design partners to shape the workcell archetypes, failure modes, and recovery patterns. First program: the AI Robotics Feasibility Sprint — 6 weeks, leased robot, on-site or at our lab. Year-1 focus is East Texas fabrication shops and specialty electronics contract manufacturers nationally.
 >
 > Mechanical, PLC, and safety work is delegated to regional integration partners — we stay in the AI/software lane.
 >
@@ -169,11 +171,13 @@ Add (if not already present):
 
 ### Full draft (using opening A — edit freely)
 
-> Today I'm launching Asperity Industries. We deploy AI-native robotic workcells at small and medium manufacturers, starting with shops within driving distance of Tyler.
+> Today I'm announcing Asperity Industries. AI-native robotics deployment for small and medium manufacturers, currently working with a small group of design partners in East Texas.
 >
 > The gap I keep seeing: robots in SMB manufacturing are programmed once and run one product. They handle pose variation badly, choke on part-family changes, and lose hours on changeover. The hardware is fine. What's missing is the software layer that lets a workcell adapt.
 >
-> Asperity builds that layer. Our first offer is the AI Robotics Feasibility Sprint: 6 weeks, $25K–$80K. We bring or configure a leased robot, build the AI/perception/recovery layer, measure cycle time and quality before and after, and deliver a production-pilot proposal. Mechanical, PLC, and safety work goes to integration partners. We stay in the AI/software lane.
+> Asperity builds that layer. Our first program is the AI Robotics Feasibility Sprint — a 6-week engagement where we bring or configure a leased robot, build the AI/perception/recovery layer, measure cycle time and quality before and after, and deliver a production-pilot proposal. Mechanical, PLC, and safety work goes to integration partners. We stay in the AI/software lane.
+>
+> We're building this product with our first customers, not for them. Design partners shape the failure modes, the recovery patterns, and the workcell archetypes the rest of the company is built on.
 >
 > Year-1 focus is East Texas fabrication shops and specialty electronics contract manufacturers nationally. If you run a shop with a task that's eating hours — or know someone who does — I'd like to talk.
 >
