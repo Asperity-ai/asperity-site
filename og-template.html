@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Serif:wght@400;500;600&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    width: 1200px;
+    height: 630px;
+    background-color: #F8F6F1;
+    background-image: radial-gradient(circle, rgba(26, 26, 26, 0.07) 1px, transparent 1px);
+    background-size: 32px 32px;
+    color: #1A1A1A;
+    font-family: 'IBM Plex Serif', Georgia, serif;
+    padding: 88px 96px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+  }
+
+  .top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'IBM Plex Serif', Georgia, serif;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .top-right {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 18px;
+    color: #6B6862;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .headline {
+    font-family: 'IBM Plex Serif', Georgia, serif;
+    font-size: 108px;
+    font-weight: 500;
+    line-height: 0.96;
+    letter-spacing: -0.035em;
+    max-width: 1000px;
+    color: #1A1A1A;
+  }
+
+  .bottom-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .descriptor {
+    font-family: 'IBM Plex Serif', Georgia, serif;
+    font-size: 26px;
+    line-height: 1.35;
+    color: #383530;
+    max-width: 640px;
+    letter-spacing: -0.01em;
+  }
+
+  .accent-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 14px;
+  }
+
+  .rust-rule {
+    width: 72px;
+    height: 4px;
+    background: #B5371E;
+  }
+
+  .mono-label {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 16px;
+    color: #B5371E;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+</style>
+</head>
+<body>
+  <div class="top-row">
+    <span>Asperity Industries</span>
+    <span class="top-right">Tyler, TX</span>
+  </div>
+
+  <div class="headline">Robotics that adapts to your line.</div>
+
+  <div class="bottom-row">
+    <div class="descriptor">AI-native robotics deployment for small and medium manufacturers. Six-week feasibility sprints.</div>
+    <div class="accent-stack">
+      <div class="rust-rule"></div>
+      <div class="mono-label">asperity.ai</div>
+    </div>
+  </div>
+</body>
+</html>
