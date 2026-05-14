@@ -6,20 +6,20 @@
   "trailingSlash": false,
   "redirects": [
     {
-      "source": "/:path*",
-      "destination": "https://asperity.ai/:path*",
+      "source": "/(.*)",
+      "destination": "https://asperity.ai/$1",
       "permanent": true,
       "has": [{ "type": "host", "value": "asperityrobotics.com" }]
     },
     {
-      "source": "/:path*",
-      "destination": "https://asperity.ai/:path*",
+      "source": "/(.*)",
+      "destination": "https://asperity.ai/$1",
       "permanent": true,
       "has": [{ "type": "host", "value": "asperityrobotics.ai" }]
     },
     {
-      "source": "/:path*",
-      "destination": "https://asperity.ai/:path*",
+      "source": "/(.*)",
+      "destination": "https://asperity.ai/$1",
       "permanent": true,
       "has": [{ "type": "host", "value": "asperityai.com" }]
     }
