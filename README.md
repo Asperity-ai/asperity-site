@@ -73,3 +73,4 @@ Custom domains (configured in Vercel dashboard):
 - [ ] Submit same to Bing Webmaster Tools
 - [ ] Verify all 4 domains 301 cleanly to asperity.ai
 - [ ] Test schema.org JSON-LD via Google Rich Results test
+# CI test: 2026-05-14 00:43:48
